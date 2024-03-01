@@ -29,3 +29,4 @@ plt.legend()
 # Show the plot
 plt.show()
 ```
+![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/e5a6d6db-91cb-4ddf-8335-8eba6d549a88)

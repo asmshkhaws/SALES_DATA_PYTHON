@@ -21,7 +21,7 @@ Electronic Item's sales analysis using Python
 * [Stage 4 Statistical Data Analysis:](.md)
   Statistical analysis means investigating trends, patterns, and relationships using quantitative data.
   
-* [Stage 5 Data Transformation:](.md)
+* [Stage 5 Data Transformation:](STAGE_5_DATA_TRANSFORMATION.md)
   Data transformation is the process of extracting data, sifting through it, understanding it, and then transforming it into something you can analyze.
   
 * [Stage 6 Hypothesis Testing:](.md)

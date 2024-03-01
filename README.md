@@ -9,10 +9,10 @@
 ## Introduction
 Electronic Item's sales analysis using Python
 
-* [Stage 1 Data Cleaning](Stage 1: Data Cleaning.md)
+* [Stage 1 Data Cleaning](Stage1:DataCleaning.md)
   Data cleaning is the process of fixing or removing incorrect, corrupted, incorrectly formatted, duplicate, or incomplete data within a dataset.
   
-* [Stage 2 Data Manipulation:](.md)
+* [Stage 2 Data Manipulation:](123.md)
   Data manipulation with python is a process that enables users in data organization in order to make reading or interpreting the insights from the data more structured and comprises of having better design.
   
 * [Stage 3 Exploratory Data Analysis:](.md)

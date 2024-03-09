@@ -94,11 +94,17 @@ mixed_data = df['cost']
 non_numeric_values= []
 ```
 * Iterate through the elements in the variable
+* The isin() method checks if the Dataframe contains the specified value(s).
+* It returns a DataFrame similar to the original DataFrame, but the original values have been replaced with True if the value was one of the specified values, otherwise False.
+* The isnumeric() method returns True if all the characters are numeric (0-9), otherwise False.
+* The append() method appends an element to the end of the list.
+
 ```
 for value in mixed_data:
     if isinstance(value,str) and not value.isnumeric():
         non_numeric_values.append(value)
 ```
+
 * Print the non-numeric values
 ```
 print("Non-Numeric Values:")
@@ -115,15 +121,18 @@ print(df_new)
 
 ## 4. Remove non-numeric rows in one column with pandas
 * Using pd.to_numeric
+* pandas.to_numeric() is one of the general functions in Pandas which is used to convert argument to a numeric type.
 
-`This will coerce all non-numeric values to NaN, which will then be flagged as False using notnull(). `
+    `This will coerce all non-numeric values to NaN, which will then be flagged as False using notnull().`
 
-* Other numeric values will be converted to True.
+    `Other numeric values will be converted to True.`
 ```
 df = df[pd.to_numeric(df['cost'], errors='coerce').notnull()]
 df
 ```
 * Another Method to remove miss-identified data
+* The mask() method replaces the values of the rows where the condition evaluates to True.
+* The mask() method is the opposite of the The where() method.
 ```
 mask = (df['cost'] == 'XXX')
 ```
@@ -136,6 +145,7 @@ df = df[~mask]
 ### Convert DataType
 
 * Convert DataType of `cost` from object to float
+* The astype() method returns a new DataFrame where the data types has been changed to the specified type.
 ```
 df['cost'] =df['cost'].astype(float)
 ```
@@ -154,6 +164,7 @@ Data type changed
 
 ## 5. Remove Duplicates
 * Identify Duplicates
+* The duplicated() method returns a Series with True and False values that describe which rows in the DataFrame are duplicated and not.
 ```
 duplicates = df[df.duplicated()]
 ```
@@ -164,7 +175,8 @@ print(duplicates)
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/bd99bf50-6d20-4f53-9fce-f3bbf85ab265)
 
-* Remove Duplicates and keeping df as it is
+* Remove Duplicates and keeping df as it is.
+* The drop_duplicates() method removes duplicate rows.
 ```
 df_no_duplicates = df.drop_duplicates()
 df_no_duplicates

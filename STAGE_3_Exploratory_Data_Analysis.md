@@ -69,26 +69,30 @@ devtype_frequency
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/bc6bc608-f9f0-4649-b881-508ababf1729)
 
-Calculate relative frequencies (percentages)
-```
-devtype_percent = (devtype_frequency*100)/devtype_frequency.sum()
-devtype_percent
-```
-Create a pie chart for the percentages
-```
-devtype_percent.plot(kind ='pie', labels=devtype_percent.index, autopct='%1.1f%%', startangle=140, figsize=(7.50, 3.50))
-plt.title('The device is predominantly used for making product purchases')
-plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-plt.legend(title = "Products:", loc="best")
-```
-Show the pie chart
-```
-plt.show()
-```
+* A Percentage is calculated by the mathematical formula of dividing the value by the sum of all the values and then multiplying the sum by 100.
+* This is also applicable in Pandas Dataframes.
+
+  `df[percent] = (df['column_name'] / df['column_name'].sum()) * 100`
+  ```
+  # Calculate relative frequencies (percentages)
+  devtype_percent = (devtype_frequency*100)/devtype_frequency.sum()
+  devtype_percent
+  
+  # Create a pie chart for the percentages
+  devtype_percent.plot(kind ='pie', labels=devtype_percent.index, autopct='%1.1f%%', startangle=140, figsize=(7.50, 3.50))
+  
+  plt.title('The device is predominantly used for making product purchases')
+  plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+  plt.legend(title = "Products:", loc="best")
+  
+  # Show the pie chart
+  plt.show()
+  ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/b9de2d33-ef8c-4ce8-a4d2-8d05e3811343)
 
 ## 2. DESCRIPTIVE ANALYSIS METHOD
 ### Find the descriptives of order value, cost and refund.
+* The `describe()` method returns description of the data in the DataFrame.
 ```
 numeric_columns = ['order_value_EUR', 'cost', 'refund']
 numeric_summery = final_df[numeric_columns].describe()
@@ -96,8 +100,21 @@ numeric_summery
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/0ac26e1a-6039-4404-b2cb-4452828073e1)
 
+* With the `subplot()` function you can draw multiple plots in one figure:
+
+  The `subplot()` function takes three arguments that describes the layout of the figure.
+
+    `plt.subplot(1, 2, 1)`
+
+  The layout is organized in rows and columns, which are represented by the first and second argument.
+
+  The third argument represents the index of the current plot.
+* `Seaborn`: provides a high-level interface for drawing attractive and informative statistical graphics.
+* With Seaborn, histograms are made using the `histplot` function.
+
+  You can add a kde curve to a histogram by setting the `kde` argument to True.
+  
 ```
-# Seaborn: provides a high-level interface for drawing attractive and informative statistical graphics.
 import seaborn as sns
 
 # Create a figure with three subplots for the numeric variables
@@ -124,6 +141,9 @@ plt.show()
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/c23856e1-2ecd-4908-bd05-0c8fca6660c9)
 
+* Box Plot is the visual representation of the depicting groups of numerical data through their quartiles.
+
+  Boxplot is also used for detect the outlier in data set. 
 ```
 # Create a figure with three subplots for the boxplot
 plt.figure(figsize=(12, 4))
@@ -151,6 +171,7 @@ plt.show()
 
 ## 3. GROUPBY
 ### Identify the top 3 product categories based on both order value and cost.
+* The groupby() method allows you to group your data and execute functions on these groups.
 ```
 median_order_value = final_df.groupby('category')['order_value_EUR'].median()
 median_order_value.sort_values(ascending = False)
@@ -275,6 +296,7 @@ plt.show()
 
 ## 6. CORRELATION
 ### Find the relationship between order value, cost and refund amount.
+* The `corr()` method finds the correlation of each column in a DataFrame.
 ```
 # Calculate the correlation matrix
 correlation_matrix = final_df[['order_value_EUR','cost','refund']].corr()

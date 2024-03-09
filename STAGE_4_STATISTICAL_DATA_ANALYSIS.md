@@ -1,10 +1,8 @@
 # STAGE 4 STATISTICAL DATA ANALYSIS
-Method of transformation
-1. Square-Root
-2. Logrithmic
-3. Box-Cox
-4. Yeo-Johnson
+
 ## Detecting Normality
+* A kernel density estimate (KDE) plot is a method for visualizing the distribution of observations in a dataset, analogous to a histogram.
+* KDE plot is implemented through the `kdeplot` function in Seaborn `sns`.
 ```
 # Create subplots for the KDE plots
 fig, ax = plt.subplots(figsize=(10, 5))

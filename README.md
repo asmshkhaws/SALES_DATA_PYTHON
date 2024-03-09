@@ -9,22 +9,28 @@
 ## Introduction
 Electronic Item's sales analysis using Python
 
-* [Stage 1 Data Cleaning](Stage_1_Data_Cleaning.md){:target="_blank"}
+* [Stage 1 Data Cleaning](Stage_1_Data_Cleaning.md)
+
   Data cleaning is the process of fixing or removing incorrect, corrupted, incorrectly formatted, duplicate, or incomplete data within a dataset.
   
 * [Stage 2 Data Manipulation:](STAGE_2_Data_Manipulation.md)
-  Data manipulation with python is a process that enables users in data organization in order to make reading or interpreting the insights from the data more structured and comprises of having better design.
+
+   Data manipulation with python is a process that enables users in data organization in order to make reading or interpreting the insights from the data more structured and comprises of having better design.
   
 * [Stage 3 Exploratory Data Analysis:](STAGE_3_Exploratory_Data_Analysis.md)
+
   Exploratory Data Analysis (EDA) is an analysis approach that identifies general patterns in the data.
   
 * [Stage 4 Statistical Data Analysis:](STAGE_4_STATISTICAL_DATA_ANALYSIS.md)
+
   Statistical analysis means investigating trends, patterns, and relationships using quantitative data.
   
 * [Stage 5 Data Transformation:](STAGE_5_DATA_TRANSFORMATION.md)
+
   Data transformation is the process of extracting data, sifting through it, understanding it, and then transforming it into something you can analyze.
   
 * [Stage 6 Hypothesis Testing:](STAGE_6_HYPOTHESIS_TESTING.md)
+
   A statistical hypothesis test is a method of statistical inference used to decide whether the data sufficiently support a particular hypothesis.
 
 ## Datasets used

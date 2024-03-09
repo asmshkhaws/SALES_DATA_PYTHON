@@ -1,16 +1,17 @@
 # Stage 1: Data Cleaning
 ## 1. Import Data
-Once Pandas is installed, import it in your applications by adding the import keyword:
+* Pandas is used to analyze data.
+* Once Pandas is installed, import it in your applications by adding the import keyword:
 ```
 import pandas as pd
 ```
-Load Excel data into a pandas DataFrame
+* Load Excel data into a pandas DataFrame
 ```
 df = pd.read_excel(r"H:\Data Analyst\Udemy - Data Analysis A-Z - Become Data Analyst in 30 Days\3. Stage 1 Data Cleaning A - Z\Practice datasets\sales data.xlsx")
 ```
-Now, you can work with the data in the 'df' DataFrame
+* Now, you can work with the data in the 'df' DataFrame
 
-For example, you can print the first few rows of the DataFrame
+* For example, you can print the first few rows of the DataFrame
 ```
 df.head()
 ```
@@ -36,9 +37,11 @@ Univariate imputer for completing missing values with simple strategies.
 ```
 target_column = 'order_value_EUR'
 ```
-Create a SimpleImputer instance to impute missing values with a strategy (e.g., 'mean', 'median', 'most_frequent')
-
-Other strategies include 'constant' to replace missing values with a constant value
+* Create a `SimpleImputer` instance to impute missing values with a strategy (e.g., `'mean', 'median', 'most_frequent'`)
+* Other strategies include `constant` to replace missing values with a constant value
+* Outliers data points will have a significant impact on the mean and hence, in such cases, it is not recommended to use the mean for replacing the missing values.
+* Using mean values for replacing missing values may not create a great model and hence gets ruled out.
+* For symmetric data distribution, one can use the mean value for imputing missing values.
 ```
 imputer = SimpleImputer(strategy='median')
 ```
@@ -60,9 +63,7 @@ df.device_type.describe()
 ```
 target_column = 'device_type'
 ```
-Create a SimpleImputer instance to impute missing values with a strategy (e.g., 'mean', 'median', 'most_frequent')
-
-Other strategies include 'constant' to replace missing values with a constant value
+* The `most_frequent` strategy can be used to summarize categorical variables.
 ```
 imputer = SimpleImputer(strategy='most_frequent')
 ```

@@ -1,5 +1,19 @@
 # STAGE 5 DATA TRANSFORMATION
+![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/e5a6d6db-91cb-4ddf-8335-8eba6d549a88)
+* It was observed that `cost` & `order value` column had data which were positively skewed distributed.
+* Numerical variables may have high skewed and non-normal distribution caused by outliers, highly exponential distributions, etc.
+* Therefore we go for data transformation.
+
+__Method of data transformation__
+  1. Square-Root
+  2. Logrithmic
+  3. Box-Cox
+  4. Yeo-Johnson
+
 ## 1. SQUARE ROOT TRANSFORMATION
+* This transformation will give a moderate effect on distribution.
+* The main advantage of square root transformation is, it can be applied to zero values.
+
 ```
 #Square root
 import numpy as np
@@ -23,6 +37,7 @@ sns.kdeplot(sqrt_refund, fill=True)
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/41b563ab-57d4-4c62-b701-f3e252d8b8e4)
 
 ## 2. LOGRITHMIC METHOD TRANSFORMATION
+* In Log transformation each variable of x will be replaced by log(x) with base 10, base 2, or natural log.
 ```
 #Logarithmic
 
@@ -48,6 +63,7 @@ sns.kdeplot(log_refund, fill=True)
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/ea4e1434-67ec-4650-9f9f-e691d0ad47da)
 
 ## 3. BOX-COX TRANSFORMATION
+* Box-cox transformation works pretty well for many data natures.
 ```
 #Box - cox
 from scipy import stats
@@ -73,6 +89,8 @@ sns.kdeplot(boxcox_refund, fill=True)
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/77db78b5-185d-48e3-958d-7066603eb80b)
 
 ## 4. YEO-JOHNSON TRANSFORMATION
+* This is one of the older transformation technique which is very similar to Box-cox transformation but does not require the values to be strictly positive.
+
 ```
 #Yeo - Johnson
 

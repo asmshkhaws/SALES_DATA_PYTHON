@@ -1,24 +1,24 @@
 ## 1. Exploring VALUE_COUNTS analysis method
 ### What is the primary country of residence for the majority of our customers?
+* `value_counts()`:	Returns the number of unique rows
 ```
 country_frequency = final_df['country'].value_counts()
 country_frequency
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/0a90f034-cd84-40be-a73a-9db874cc3f6b)
 
-matplotlib.pyplot creates a figure, creates a plotting area in a figure, plots some lines in a plotting area, decorates the plot with labels, etc.
+* `matplotlib.pyplot` creates a figure, creates a plotting area in a figure, plots some lines in a plotting area, decorates the plot with labels, etc.
 ```
 import matplotlib.pyplot as plt
 ```
-Create a bar plot for the 'country_frequency'
+* Create a bar plot for the `'country_frequency'`
+* Pandas uses the plot() method to create diagrams.
 ```
 country_frequency.plot(kind='bar', color='skyblue', edgecolor='black', figsize=(8, 5))
 plt.title('The primary country of residence for the majority of our customers')
 plt.xlabel('Country')
 plt.ylabel('Frequency')
-```
-plt.xticks(rotation=90) # Rotate x-axis labels if needed
-```
+# plt.xticks(rotation=90) # Rotate x-axis labels if needed
 plt.show()
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/73d018f8-d07c-4603-b456-457394c9e832)

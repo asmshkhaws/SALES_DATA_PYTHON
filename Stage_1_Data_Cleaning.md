@@ -18,22 +18,22 @@ df.head()
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/50a78a4b-1322-4580-8e6c-13aa38b38e19)
 
 ## 2. Missing Values / Simpleimputer
-Check for missing values in the entire DataFrame
+* Check for missing values in the entire DataFrame
 ```
 missing_values = df.isnull().sum()
 ```
-To check for missing values in a specific column, you can use:
+* Check for missing values in a specific column, you can use:
 ```
 missing_values = df['column_name'].isnull().sum()
 ```
-Print the columns with missing values and their respective counts
+* Print the columns with missing values and their respective counts
 ```
 print("Missing Values:")
 print(missing_values[missing_values > 0])
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/76c5cee0-1cb0-4ee2-81d4-d7e44976647a)
 
-Univariate imputer for completing missing values with simple strategies.
+* Univariate imputer for completing missing values in `order_value_EUR` field with simple strategies.
 ```
 target_column = 'order_value_EUR'
 ```
@@ -45,11 +45,11 @@ target_column = 'order_value_EUR'
 ```
 imputer = SimpleImputer(strategy='median')
 ```
-Fit the imputer on the selected column and transform it to impute missing values
+* Fit the imputer on the selected column and transform it to impute missing values
 ```
 df[target_column] = imputer.fit_transform(df[[target_column]])
 ```
-To find missing value
+* Find missing value
 ```
 df.isnull().sum()
 ```
@@ -67,46 +67,46 @@ target_column = 'device_type'
 ```
 imputer = SimpleImputer(strategy='most_frequent')
 ```
-Fit the imputer on the selected column and transform it to impute missing values
+* Fit the imputer on the selected column and transform it to impute missing values
 ```
 df.device_type = imputer.fit_transform(df['device_type'].values.reshape(-1,1))[:,0]
 ```
-To find missing value
+* Find missing value
 ```
 df.isnull().sum()
 ```
-We can see no missing value
+* We can see no missing value
 
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/7d903169-3c6c-4e9e-966e-30d23a181c52)
 
 ## 3. Dealing with Inconsistant Values/ Change DataType
-To check various data types
+* Check various data types
 ```
 df.dtypes
 ```
-Identify Inconsistent value in 'cost' column
-Sample variable containing mixed data
+* Identify Inconsistent value in 'cost' column 
+* Sample variable containing mixed data
 ```
 mixed_data = df['cost']
 ```
-Create an empty list to store non-numeric values
+* Create an empty list to store non-numeric values
 ```
 non_numeric_values= []
 ```
-Iterate through the elements in the variable
+* Iterate through the elements in the variable
 ```
 for value in mixed_data:
     if isinstance(value,str) and not value.isnumeric():
         non_numeric_values.append(value)
 ```
-Print the non-numeric values
+* Print the non-numeric values
 ```
 print("Non-Numeric Values:")
 print(non_numeric_values)
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/02818322-9b13-4ff2-93f3-046743877832)
 
-Select rows from a dataframe based on column value (ie XXX in 'cost' column)
+* Select rows from a dataframe based on column value (ie XXX in 'cost' column)
 ```
 df_new = df[df['cost'] == 'XXX']
 print(df_new)
@@ -114,20 +114,20 @@ print(df_new)
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/e12a003c-4f4c-4014-bfce-0f4fd4731cab)
 
 ## 4. Remove non-numeric rows in one column with pandas
-Using pd.to_numeric
+* Using pd.to_numeric
 
-This will coerce all non-numeric values to NaN, which will then be flagged as False using notnull(). 
+`This will coerce all non-numeric values to NaN, which will then be flagged as False using notnull(). `
 
-Other numeric values will be converted to True.
+* Other numeric values will be converted to True.
 ```
 df = df[pd.to_numeric(df['cost'], errors='coerce').notnull()]
 df
 ```
-Another Method to remove miss-identified data
+* Another Method to remove miss-identified data
 ```
 mask = (df['cost'] == 'XXX')
 ```
-Remove rows that match the mask
+* Remove rows that match the mask
 ```
 df = df[~mask]
 ```
@@ -135,13 +135,13 @@ df = df[~mask]
 
 ### Convert DataType
 
-To Convert DataType of 'cost' from object to float
+* Convert DataType of `cost` from object to float
 ```
 df['cost'] =df['cost'].astype(float)
 ```
-To Convert DataType of 'date' from object to datetime64
+* Convert DataType of `date` from object to datetime64
 
-Here we need to assign datetime64[ns] in ''
+* Here we need to assign datetime64[ns] between `''`
 ```
 df['date'] = df['date'].astype('datetime64[ns]')
 ```
@@ -153,18 +153,18 @@ df.dtypes
 Data type changed
 
 ## 5. Remove Duplicates
-Identify Duplicates
+* Identify Duplicates
 ```
 duplicates = df[df.duplicated()]
 ```
-Print Duplicate rows
+* Print Duplicate rows
 ```
 print("Duplicated Rows:")
 print(duplicates)
 ```
 ![image](https://github.com/asmshkhaws/SALES_DATA_PYTHON/assets/119579424/bd99bf50-6d20-4f53-9fce-f3bbf85ab265)
 
-Remove Duplicates and keeping df as it is
+* Remove Duplicates and keeping df as it is
 ```
 df_no_duplicates = df.drop_duplicates()
 df_no_duplicates

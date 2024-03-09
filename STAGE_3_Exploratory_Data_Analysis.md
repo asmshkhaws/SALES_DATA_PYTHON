@@ -171,7 +171,7 @@ plt.show()
 
 ## 3. GROUPBY
 ### Identify the top 3 product categories based on both order value and cost.
-* The groupby() method allows you to group your data and execute functions on these groups.
+* The `groupby()` method allows you to group your data and execute functions on these groups.
 ```
 median_order_value = final_df.groupby('category')['order_value_EUR'].median()
 median_order_value.sort_values(ascending = False)
@@ -206,6 +206,7 @@ median_sal_rep_refund.sort_values(ascending=False)
 
 ## 4. PIVOT TABLE
 ### Who are the most loyal customers of your superstore?
+* A pivot table in Pandas is a quantitative table that summarizes a large DataFrame, such as a large dataset.
 ```
 # Create a pivot table based on median sales, cost, and counts for each product category
 loyal_customer_pivot_table = final_df.pivot_table(index= 'customer_name',
@@ -254,8 +255,8 @@ plt.show()
 
 ## 5. CROSSTABULATION
 ### Under which sales manager, which product category has the highest sales volume?
+* CROSSTABULATION: help us to understand the relationship between two or more variable..
 ```
-CROSSTABULATION: help us to understand the relationship between two or more variable.
 crosstab_sal_man = pd.crosstab(final_df['sales_manager'], final_df['category'])
 crosstab_sal_man
 ```

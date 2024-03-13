@@ -94,10 +94,9 @@ mixed_data = df['cost']
 non_numeric_values= []
 ```
 * Iterate through the elements in the variable
-* The isin() method checks if the Dataframe contains the specified value(s).
-* It returns a DataFrame similar to the original DataFrame, but the original values have been replaced with True if the value was one of the specified values, otherwise False.
-* The isnumeric() method returns True if all the characters are numeric (0-9), otherwise False.
-* The append() method appends an element to the end of the list.
+* The `isinstance()` function returns True if the specified object is of the specified type, otherwise False.
+* The `isnumeric()` method returns True if all the characters are numeric (0-9), otherwise False.
+* The `append()` method appends an element to the end of the list.
 
 ```
 for value in mixed_data:
@@ -121,7 +120,7 @@ print(df_new)
 
 ## 4. Remove non-numeric rows in one column with pandas
 * Using pd.to_numeric
-* pandas.to_numeric() is one of the general functions in Pandas which is used to convert argument to a numeric type.
+* pandas.`to_numeric()` is one of the general functions in Pandas which is used to convert argument to a numeric type.
 
     `This will coerce all non-numeric values to NaN, which will then be flagged as False using notnull().`
 
@@ -131,8 +130,8 @@ df = df[pd.to_numeric(df['cost'], errors='coerce').notnull()]
 df
 ```
 * Another Method to remove miss-identified data
-* The mask() method replaces the values of the rows where the condition evaluates to True.
-* The mask() method is the opposite of the The where() method.
+* The `mask()` method replaces the values of the rows where the condition evaluates to True.
+* The `mask()` method is the opposite of the The `where()` method.
 ```
 mask = (df['cost'] == 'XXX')
 ```

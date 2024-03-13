@@ -93,7 +93,7 @@ mixed_data = df['cost']
 ```
 non_numeric_values= []
 ```
-* Iterate through the elements in the variable
+* A `for` loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).
 * The `isinstance()` function returns True if the specified object is of the specified type, otherwise False.
 * The `isnumeric()` method returns True if all the characters are numeric (0-9), otherwise False.
 * The `append()` method appends an element to the end of the list.
